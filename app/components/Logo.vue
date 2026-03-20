@@ -1,5 +1,5 @@
 <template>
   <NuxtLink to="/">
-    <img src="/logo.png" alt="AgriManagement logo" class="h-16 lg:h-20" />
+    <img src="/logo.png" alt="AgriManagement logo" class="h-12 lg:h-16" />
   </NuxtLink>
 </template>
