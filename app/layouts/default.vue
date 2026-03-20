@@ -12,6 +12,7 @@
       <slot />
     </main>
     <AppFooter />
+    <WhatsAppButton />
   </div>
 </template>
 

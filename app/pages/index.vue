@@ -4,7 +4,7 @@
     <section class="py-12 md:py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center md:text-center max-md:text-left">
-          <h1 class="text-3xl md:text-5xl font-semibold text-gray-900 mb-6">Rooted In Cameroon, Trusted <br/> Worldwide</h1>
+          <h1 class="text-3xl md:text-5xl font-semibold text-gray-900 mb-6">Rooted In Cameroon, Trusted <br class="md:block hidden"/> Worldwide</h1>
           <p class="text-md md:pt-8 text-gray-600 max-w-4xl mx-auto max-md:mx-0 px-2 leading-relaxed">
             Agri-Management is a Cameroonian export-import company focused on delivering high-quality cocoa, coffee, and cocoa residues to global markets. With a deep commitment to sustainability and local partnerships, we ensure every product meets international standards of quality and reliability.
           </p>
