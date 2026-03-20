@@ -15,13 +15,10 @@
               We specialize in the export-import of high-quality coffee, cocoa beans, and cocoa residues, including cocoa butter, cocoa mass, cocoa powder, and cocoa shells. All sustainably sourced and expertly processed for international partners.
             </p>
             <div class="pt-8 flex max-lg:justify-center">
-              <NuxtLink 
+              <PrimaryButton 
                 to="/about"
-                class="inline-flex items-center px-5 py-4 text-[14px] font-sm bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors group"
-              >
-                Learn More
-                <Icon name="i-heroicons-arrow-right" class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-              </NuxtLink>
+                text="Learn More"
+              />
             </div>
           </div>
         </div>
