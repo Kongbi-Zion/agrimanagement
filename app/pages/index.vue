@@ -121,14 +121,14 @@ const ctaSections = ref([
 ])
 
 const galleryImages = ref([
-  { src: 'https://picsum.photos/400/300?random=1', alt: 'Premium cocoa beans' },
-  { src: 'https://picsum.photos/400/300?random=2', alt: 'Cocoa powder processing' },
-  { src: 'https://picsum.photos/400/300?random=3', alt: 'Cocoa butter and mass' },
-  { src: 'https://picsum.photos/400/300?random=4', alt: 'Cocoa shells and residues' },
-  { src: 'https://picsum.photos/400/300?random=5', alt: 'Wedding decorations setup' },
-  { src: 'https://picsum.photos/400/300?random=6', alt: 'Event decor and rentals' },
-  { src: 'https://picsum.photos/400/300?random=7', alt: 'Electronics showroom' },
-  { src: 'https://picsum.photos/400/300?random=8', alt: 'Mobile devices and accessories' }
+  { src: 'https://media.istockphoto.com/id/1406207995/photo/cocoa-with-chocolate-pieces-and-chocolate-powder-on-the-table.jpg?s=612x612&w=0&k=20&c=TsbVdWD0drv5uIxeIRYYEHDo2NGifx_XdcKQ1QMKUfc=', alt: 'Premium cocoa beans' },
+  { src: 'https://media.istockphoto.com/id/503259289/photo/cocoa-in-different-presentations-on-wood-table.jpg?s=612x612&w=0&k=20&c=IwqtT1vqo9S_MNI5ISeT9uGthtFnfAJazQ4wcK7E-PI=', alt: 'Cocoa powder processing' },
+  { src: 'https://media.istockphoto.com/id/146969350/photo/cocoa.jpg?s=612x612&w=0&k=20&c=cYCG6VSvo_uoYdQGBaHosAOlZmriVQWu3Te_A-LnfVA=', alt: 'Cocoa butter and mass' },
+  { src: 'https://media.istockphoto.com/id/2210604462/photo/fresh-cacao-fruit-growing-in-hawaii.jpg?s=612x612&w=0&k=20&c=PXT8jAshxzSyLT087mfjVBi8Zf23eFWIVivEJSbNajQ=', alt: 'Cocoa shells and residues' },
+  { src: 'https://scontent-los4-1.xx.fbcdn.net/v/t39.30808-6/493692947_716490840773515_2302853838345255512_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=muBKFog7o4kQ7kNvwGix-CC&_nc_oc=AdqyWoRZCKEVmS61FuTXeqRt0WqLEvQRYqbFBB1d2UJJhTlHGzwUEtzCA0GoT3wbkJPnII69SZpdBk6Td3k-xtPa&_nc_zt=23&_nc_ht=scontent-los4-1.xx&_nc_gid=BoyW4pgFwCOprp8WqhJuMw&_nc_ss=7a30f&oh=00_Afz0s2Zn9shnJtcuhY40aShA-dTGv-fiW87QQsADsthNVA&oe=69C2C2B9', alt: 'Wedding decorations setup' },
+  { src: 'https://media.istockphoto.com/id/1392285553/photo/half-cacao-pods-with-cacao-fruit-and-brown-cocoa-powder.jpg?s=612x612&w=0&k=20&c=AZJlSWpwXQe4aRTWcd6q3MDejVmniif3nQ6fzoFozYI=', alt: 'Event decor and rentals' },
+  { src: 'https://m.media-amazon.com/images/I/81KmaTjTRxL._AC_SL1000__.jpg', alt: 'Electronics showroom' },
+  { src: 'https://thumbs.dreamstime.com/b/many-used-modern-electronic-gadgets-use-white-floor-reuse-recycle-concept-top-view-153892434.jpg', alt: 'Mobile devices and accessories' }
 ])
 
 const services = ref([
