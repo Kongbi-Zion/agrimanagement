@@ -1,104 +1,278 @@
 <template>
   <div class="max-w-6xl mx-auto space-y-8 py-8">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Cocoa & Coffee</h1>
-      <p class="text-xl text-gray-600">
-        Premium quality cocoa and coffee products for global markets
+    <div class="text-center md:text-center max-md:text-left">
+      <h1 class="text-3xl md:text-5xl font-semibold text-gray-900 mb-6">Trade Has Never Tasted So Good</h1>
+      <p class="text-md md:pt-5 text-gray-600 max-w-4xl mx-auto max-md:mx-0 px-2 leading-relaxed">
+        We export-import Cameroon's finest coffee and cocoa products, sustainably sourced, expertly propposed, and globally trusted.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <section>
-        <h2 class="text-2xl font-semibold mb-6">Our Cocoa Products</h2>
-        <div class="space-y-4">
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h3 class="text-lg font-semibold mb-2">Cocoa Beans</h3>
-            <p class="text-gray-600">
-              Premium quality cocoa beans sourced from sustainable farms, perfect for chocolate production and industrial applications.
-            </p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h3 class="text-lg font-semibold mb-2">Cocoa Butter</h3>
-            <p class="text-gray-600">
-              High-purity cocoa butter ideal for cosmetics, pharmaceuticals, and confectionery applications.
-            </p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h3 class="text-lg font-semibold mb-2">Cocoa Powder</h3>
-            <p class="text-gray-600">
-              Premium cocoa powder with consistent quality for baking, beverages, and food manufacturing.
-            </p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h3 class="text-lg font-semibold mb-2">Cocoa Mass</h3>
-            <p class="text-gray-600">
-              Pure cocoa mass for chocolate manufacturers and industrial chocolate production.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold mb-6">Our Coffee Selection</h2>
-        <div class="space-y-4">
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h3 class="text-lg font-semibold mb-2">Arabica Beans</h3>
-            <p class="text-gray-600">
-              Premium Arabica coffee beans with exceptional flavor profiles, sourced from high-altitude farms.
-            </p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h3 class="text-lg font-semibold mb-2">Robusta Beans</h3>
-            <p class="text-gray-600">
-              High-caffeine Robusta beans perfect for espresso blends and instant coffee production.
-            </p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h3 class="text-lg font-semibold mb-2">Specialty Blends</h3>
-            <p class="text-gray-600">
-              Custom coffee blends tailored to specific market requirements and taste preferences.
-            </p>
-          </div>
-        </div>
-      </section>
+    <div class="space-y-12">
+      <UPageSection
+        v-for="(section, index) in sections"
+        :key="index"
+        :title="section.title"
+        :description="section.description"
+        :icon="section.icon"
+        orientation="horizontal"
+        :reverse="index % 2 === 1"
+        :features="section.features"
+        :links="section.links"
+      >
+        <img
+          :src="section.image"
+          width="352"
+          height="647"
+          :alt="section.alt"
+          class="w-full rounded-lg h-70 md:h-150 object-cover"
+          loading="lazy"
+        />
+      </UPageSection>
     </div>
-
-    <section class="text-center py-12">
-      <h2 class="text-2xl font-semibold mb-6">Why Choose Our Products?</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Icon name="i-heroicons-check-circle" class="w-8 h-8 text-green-600" />
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Quality Assured</h3>
-          <p class="text-gray-600">All products meet international quality standards and certifications.</p>
-        </div>
-        <div class="text-center">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Icon name="i-heroicons-truck" class="w-8 h-8 text-blue-600" />
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Global Delivery</h3>
-          <p class="text-gray-600">Reliable shipping to destinations worldwide with proper documentation.</p>
-        </div>
-        <div class="text-center">
-          <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Icon name="i-heroicons-leaf" class="w-8 h-8 text-yellow-600" />
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Sustainable Sourcing</h3>
-          <p class="text-gray-600">Environmentally responsible farming practices and fair trade partnerships.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="text-center">
-      <UButton to="/contact" size="lg" color="primary">
-        Contact Us for Inquiries
-      </UButton>
-    </section>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { PageFeatureProps, ButtonProps } from '@nuxt/ui'
+
+const sections = ref([
+  {
+    title: 'Coffee Beans',
+    description: 'High-quality Cameroonian coffee, available in both Arabica and Robusta varieties, known for its rich flavor and smooth aroma.',
+    icon: 'i-lucide-coffee',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8O3kwanWqBmMEpqxtXA3qL9n5RgXTehYqjA&s',
+    alt: 'Coffee Beans',
+    features: [
+      {
+        title: 'High Altitude Sourcing',
+        description: 'Sourced from high-altitude farms in Cameroon',
+        icon: 'i-lucide-mountain',
+        to: '#'
+      },
+      {
+        title: 'Careful Processing',
+        description: 'Carefully harvested and processed',
+        icon: 'i-lucide-settings',
+        to: '#'
+      },
+      {
+        title: 'Versatile Forms',
+        description: 'Available in green or roasted form',
+        icon: 'i-lucide-package',
+        to: '#'
+      },
+      {
+        title: 'Multi-Purpose',
+        description: 'Suitable for specialty or commercial use',
+        icon: 'i-lucide-briefcase',
+        to: '#'
+      }
+    ],
+    links: [
+      {
+        label: 'Contact us on WhatsApp',
+        to: 'https://wa.me/237681553888',
+        color: 'primary' as const,
+        variant: 'solid' as const,
+        trailingIcon: 'i-lucide-message-circle'
+      }
+    ]
+  },
+  {
+    title: 'Cocoa Powder',
+    description: 'De-fatted cocoa used in beverages, baking, and confectionery, offering a strong chocolate aroma and taste.',
+    icon: 'i-lucide-powder',
+    image: 'https://www.dellomano.com.au/cdn/shop/articles/ultimate-guide-to-choosing-the-perfect-cocoa-powder-for-baking-8964736.png?v=1773368593',
+    alt: 'Cocoa Powder',
+    features: [
+      {
+        title: 'Low-Fat Content',
+        description: 'Low-fat, unsweetened powder',
+        icon: 'i-lucide-heart',
+        to: '#'
+      },
+      {
+        title: 'Natural Flavor',
+        description: 'Processed to retain natural flavor',
+        icon: 'i-lucide-leaf',
+        to: '#'
+      },
+      {
+        title: 'Food & Beverage',
+        description: 'Suitable for food and beverage industries',
+        icon: 'i-lucide-utensils',
+        to: '#'
+      },
+      {
+        title: 'Bulk Packaging',
+        description: 'Packaged in various bulk sizes',
+        icon: 'i-lucide-boxes',
+        to: '#'
+      }
+    ],
+    links: [
+      {
+        label: 'Contact us on WhatsApp',
+        to: 'https://wa.me/237681553888',
+        color: 'primary' as const,
+        variant: 'solid' as const,
+        trailingIcon: 'i-lucide-message-circle'
+      }
+    ]
+  },
+  {
+    title: 'Cocoa Mass',
+    description: 'Finely ground, pure cocoa used in the production of chocolate and other cocoa-based products.',
+    icon: 'i-lucide-circle',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlAATt4wiK0pj-tEv9buKmfkF0IBq1WfbdOg&s',
+    alt: 'Cocoa Mass',
+    features: [
+      {
+        title: '100% Pure',
+        description: '100% pure cocoa content',
+        icon: 'i-lucide-check-circle',
+        to: '#'
+      },
+      {
+        title: 'Intense Flavor',
+        description: 'Deep, intense chocolate flavor',
+        icon: 'i-lucide-flame',
+        to: '#'
+      },
+      {
+        title: 'Versatile Use',
+        description: 'Ideal for industrial or artisanal use',
+        icon: 'i-lucide-globe',
+        to: '#'
+      },
+      {
+        title: 'No Additives',
+        description: 'No additives or preservatives',
+        icon: 'i-lucide-shield-check',
+        to: '#'
+      }
+    ],
+    links: [
+      {
+        label: 'Contact us on WhatsApp',
+        to: 'https://wa.me/237681553888',
+        color: 'primary' as const,
+        variant: 'solid' as const,
+        trailingIcon: 'i-lucide-message-circle'
+      }
+    ]
+  },
+  {
+    title: 'Cocoa Shells',
+    description: 'A natural by-product of cocoa bean processing, used for mulch, animal feed, or tea infusions.',
+    icon: 'i-lucide-circle-off',
+    image: 'https://auburnoaksgardencenter.com/cdn/shop/files/PXL_20230505_125209752.PORTRAIT.jpg?v=1683292707',
+    alt: 'Cocoa Shells',
+    features: [
+      {
+        title: 'Eco-Friendly',
+        description: 'Eco-friendly and biodegradable',
+        icon: 'i-lucide-leaf',
+        to: '#'
+      },
+      {
+        title: 'High Speed Internet',
+        description: 'Rich in antioxidants and fiber',
+        icon: 'i-lucide-wifi',
+        to: '#'
+      },
+      {
+        title: 'Bulk Available',
+        description: 'Available in bulk quantities',
+        icon: 'i-lucide-package-2',
+        to: '#'
+      }
+    ],
+    links: [
+      {
+        label: 'Contact us on WhatsApp',
+        to: 'https://wa.me/237681553888',
+        color: 'primary' as const,
+        variant: 'solid' as const,
+        trailingIcon: 'i-lucide-message-circle'
+      }
+    ]
+  },
+  {
+    title: 'Cocoa Butter',
+    description: 'A smooth, aromatic fat extracted from cocoa beans, widely used in chocolate production, cosmetics, and pharmaceuticals.',
+    icon: 'i-lucide-droplet',
+    image: 'https://cdn.britannica.com/74/192174-050-E0FBB833/cocoa-butter-beans.jpg',
+    alt: 'Cocoa Butter',
+    features: [
+      {
+        title: 'Food Grade Quality',
+        description: '100% pure and food-grade quality',
+        icon: 'i-lucide-award',
+        to: '#'
+      },
+      {
+        title: 'Creamy Texture',
+        description: 'Creamy texture with mild chocolate scent',
+        icon: 'i-lucide-sparkles',
+        to: '#'
+      },
+      {
+        title: 'Multiple Uses',
+        description: 'Ideal for chocolate, skincare, and soaps',
+        icon: 'i-lucide-infinity',
+        to: '#'
+      },
+      {
+        title: 'Various Forms',
+        description: 'Available in blocks, chips, or bulk packaging',
+        icon: 'i-lucide-boxes',
+        to: '#'
+      }
+    ],
+    links: [
+      {
+        label: 'Contact Us',
+        to: '/contact',
+        color: 'primary' as const,
+        variant: 'solid' as const,
+        trailingIcon: 'i-lucide-arrow-right'
+      }
+    ]
+  }
+])
+
+const features = ref<PageFeatureProps[]>([
+  {
+    title: 'Icons',
+    description: 'Nuxt UI integrates with Nuxt Icon to access over 200,000+ icons from Iconify.',
+    icon: 'i-lucide-smile',
+    to: '/docs/getting-started/integrations/icons'
+  },
+  {
+    title: 'Fonts',
+    description: 'Nuxt UI integrates with Nuxt Fonts to provide plug-and-play font optimization.',
+    icon: 'i-lucide-a-large-small',
+    to: '/docs/getting-started/integrations/fonts'
+  },
+  {
+    title: 'Color Mode',
+    description: 'Nuxt UI integrates with Nuxt Color Mode to switch between light and dark.',
+    icon: 'i-lucide-sun-moon',
+    to: '/docs/getting-started/integrations/color-mode'
+  }
+])
+
+const links = ref<ButtonProps[]>([
+  {
+    label: 'Explore components',
+    to: '/docs/components/app',
+    color: 'neutral',
+    variant: 'subtle',
+    trailingIcon: 'i-lucide-arrow-right'
+  }
+])
+
 useHead({
   title: 'Cocoa & Coffee - Agri-Management',
   meta: [

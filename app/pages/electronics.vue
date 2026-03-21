@@ -84,9 +84,9 @@
       <p class="text-gray-600 mb-8 max-w-3xl mx-auto">
         Can't find what you're looking for? Contact us with your requirements and we'll source it for you from our extensive network of suppliers.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center text-center">
         <UButton to="/contact" size="lg" color="primary">Get a Quote</UButton>
-        <UButton to="tel:+237123456789" size="lg" variant="outline">Call Us Now</UButton>
+        <UButton to="tel:+237681553888" size="lg" variant="outline">Call Us Now</UButton>
       </div>
     </section>
   </div>

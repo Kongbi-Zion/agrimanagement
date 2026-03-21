@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://wa.me/237123456789"
+    :href="whatsappUrl"
     target="_blank"
     rel="noopener noreferrer"
     class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 group"
@@ -33,7 +33,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  phoneNumber: '237123456789',
+  phoneNumber: '237681553888',
   message: ''
 })
 
